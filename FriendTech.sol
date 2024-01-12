@@ -1,6 +1,7 @@
 
 pragma solidity >=0.8.2 <0.9.0;
 
+
 // TODO: Events, final pricing model, 
 
 contract FriendtechSharesV1 is Ownable {
@@ -71,6 +72,7 @@ contract FriendtechSharesV1 is Ownable {
         (bool success2, ) = sharesSubject.call{value: subjectFee}("");
         require(success1 && success2, "Unable to send funds");
     }
+
     function sellShares(address sharesSubject, uint256 amount) public payable {
         uint256 supply = sharesSupply[sharesSubject];
         require(supply > amount, "Cannot sell the last share");
@@ -87,4 +89,3 @@ contract FriendtechSharesV1 is Ownable {
         require(success1 && success2 && success3, "Unable to send funds");
     }
 }
-view rawFriendtechShares.sol hosted with ❤ by GitHub
